@@ -13,7 +13,7 @@ function checkPlayerChoice(string){
 function playRound(playerSelection, computerSelection){
     console.log(`\nYour choice: ${playerSelection} \nComputer choice: ${computerSelection}`)
     if(playerSelection == computerSelection){
-        return "It's a draw"
+        return "It's a tie"
     } else if (playerSelection == "Rock" && computerSelection == "Scissors" 
     || playerSelection == "Paper" && computerSelection == "Rock" 
     || playerSelection == "Scissors" && computerSelection == "Paper"){
