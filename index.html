@@ -3,9 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Papers Scissors</title>
-        <script src="script/script.js"></script>
+        <script src="script/script.js" defer></script>
+        <link rel="stylesheet" href="assets/style.css">
     </head>
     <body>
-        
+        <div id="container">
+            <div id="scoreboard"><span id="player-score">0</span> : <span id="cpu-score">0</span></div>
+            <div id="chooses">
+                <div id="player-choice">You chose: </div>
+                <div id="cpu-choice">Cpu chose: </div>
+            </div>
+            <div id="round-result">
+                Please, make a choice below:
+            </div>
+            <div id="button-container">
+                <!-- <button value="continue">Continue</button> -->
+                <button value="Rock">Rock</button>
+                <button value="Paper">Paper</button>
+                <button value="Scissors">Scissors</button>
+            </div>
+        </div>
     </body>
 </html>
