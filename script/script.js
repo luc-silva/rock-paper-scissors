@@ -1,37 +1,65 @@
-const options = ["Rock", "Paper", "Scissors"]
+let playerChoiceDisplay = document.querySelector("#player-choice")
+const cpuChoiceDisplay = document.querySelector("#cpu-choice")
+const roundResultDisplay = document.querySelector("#round-result")
+let container = document.querySelector("#container")
+let playerScore = 0
+let cpuScore = 0
+
+const buttons = document.querySelectorAll("button")
+buttons.forEach(button => {
+    button.addEventListener("click", () =>{
+        playRound(button.value, getComputerChoice())
+    })
+})
 
 function getComputerChoice(){
+    const options = ["Rock", "Paper", "Scissors"]
     let choice = Math.round(Math.random() * 2)
     return options[choice]
 }
-function checkPlayerChoice(string){
-    string = string.toLowerCase().split("")
-    string[0] = string[0].toUpperCase()
-    return string.join("")
+function setScore() {
+    let playerScoreDisplay = document.querySelector("#player-score")
+    let cpuScoreDisplay = document.querySelector("#cpu-score")
+
+    playerScoreDisplay.textContent = playerScore
+    cpuScoreDisplay.textContent = cpuScore
 }
 
 function playRound(playerSelection, computerSelection){
-    console.log(`\nYour choice: ${playerSelection} \nComputer choice: ${computerSelection}`)
+    playerChoiceDisplay.textContent = `You chose: ${playerSelection}`
+    cpuChoiceDisplay.textContent = `Cpu chose: ${computerSelection}`
+
     if(playerSelection == computerSelection){
-        return "It's a tie"
+        roundResultDisplay.textContent = "It's a tie"
+
     } else if (playerSelection == "Rock" && computerSelection == "Scissors" 
     || playerSelection == "Paper" && computerSelection == "Rock" 
     || playerSelection == "Scissors" && computerSelection == "Paper"){
-        return "You won this round!"
+        playerScore++
+        roundResultDisplay.textContent = "You won this round"
+
     } else if (playerSelection == "Scissors" && computerSelection == "Rock"
     || playerSelection == "Rock" && computerSelection == "Paper" 
     || playerSelection == "Papper" && computerSelection == "Scissors"){
-        return "You lose this one..."
+        cpuScore++
+        roundResultDisplay.textContent = "You lose this round"
     } else {
         return "Something went wrong"
     }
+    setScore()
+    checkScore()
 }
 
-function game(){
-    for(let i = 0; i < 5; i++){
-        playerChoice = prompt("Please, make your choice: (Rock, Paper or Scissors) ")
-        console.log(`Result: ${playRound(checkPlayerChoice(playerChoice), getComputerChoice())}`)
+function resetScore(){
+    cpuScore = 0
+    playerScore = 0
+}
+function checkScore(){
+    if(cpuScore === 5){
+        resetScore()
+        roundResultDisplay.textContent = "You lose this game... How sad..."
+    } else if (playerScore === 5){
+        resetScore()
+        roundResultDisplay.textContent = "You won five rounds! Congratulations"
     }
 }
-
-game()
