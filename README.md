@@ -1,14 +1,17 @@
-# Rock Paper Scissors
+# Rock Paper Scissors with UI
 Project made by with the support of [The Odin Project in the foundations course](https://www.theodinproject.com/paths/foundations/courses/foundations)
 
 ## Assignment
-- Start a new Git repo for your project.
-Create a blank HTML document with a script tag (Hint: it is best practice to link an external .js file).
+- Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. 
 
-- Your game is going to play against the computer, so begin with a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play.
+- Add a div for displaying results and change all of your console.logs into DOM methods.
 
-- Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - the playerSelection and computerSelection - and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock". 
+- Display the running score, and announce a winner of the game once one player reaches 5 points.
 
-- Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
+- Commit your changes to the rps-ui branch.
 
-- Write a NEW function called game(). Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+- Checkout the branch we want to merge INTO i.e. main with the command git checkout main.
+
+- Mergerps-ui branch into main, our current branch, with git merge rps-ui.
+
+- Push main branch into the remote repo by running git push origin main.
